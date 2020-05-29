@@ -13,6 +13,10 @@ img {
   align-items: center;
 }
 
+.Search-bar-arlet {
+  border: 1px solid rgb(256, 0, 0);
+}
+
 .Search-bar .input {
   height: 21px;
   border: none;
@@ -20,8 +24,7 @@ img {
   font-size: 18px;
   line-height: 25px;
   /* identical to box height */
-
-  color: #7c92cd;
+  color: rgb(85, 85, 85);
   width: 350px;
   margin-left: 1rem;
 }

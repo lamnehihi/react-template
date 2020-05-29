@@ -8,26 +8,42 @@ class App extends Component {
     super();
     this.state = {
       isFocus: false,
+      isOverChars: false,
     };
-
+    let charss=[];
     setInterval(() => {
+      
       let input = document.activeElement.tagName;
+      let countElement = document.getElementById("input-search");
+      countElement.addEventListener("keyup", function () {
+        charss = countElement.value.split("");
+        console.log(charss.length);
+      });
+      if(charss.length >= 10) {
+        this.setState({
+          isOverChars: true,
+        });
+      } else {
+        this.setState({
+          isOverChars: false,
+        });
+      }
       if (input === "INPUT") {
         this.setState({
           isFocus: true,
         });
-      }else {
+      } else {
         this.setState({
           isFocus: false,
         });
       }
-    }, 1);
+    }, 100);
   }
 
   render() {
     return (
       <div className="App">
-        <SearchBar isFocus={this.state.isFocus} />
+        <SearchBar state={this.state} />
       </div>
     );
   }
